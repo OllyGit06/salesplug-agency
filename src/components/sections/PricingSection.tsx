@@ -6,7 +6,7 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Monthly",
-      subtitle: "Callsi Elite",
+      subtitle: "Salesplug Elite",
       price: "$47",
       period: "/ month",
       features: [
@@ -22,7 +22,7 @@ const PricingSection = () => {
     },
     {
       name: "Yearly", 
-      subtitle: "Callsi Elite",
+      subtitle: "Salesplug Elite",
       price: "$297",
       period: "/ year",
       originalPrice: "$564",

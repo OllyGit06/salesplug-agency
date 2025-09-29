@@ -6,7 +6,7 @@ const GuaranteeSection = () => {
     {
       icon: ShieldCheck,
       title: "30-Day Refund Guarantee",
-      description: "If Callsi doesn't work for your business, get 100% of your money back"
+      description: "If Salesplug Agency doesn't work for your business, get 100% of your money back"
     },
     {
       icon: HeadphonesIcon,
@@ -29,13 +29,13 @@ const GuaranteeSection = () => {
               <ShieldCheck className="w-10 h-10 text-accent-foreground" />
             </div>
             <h2 className="text-3xl lg:text-5xl font-bold text-foreground">
-              Try Callsi{" "}
+              Try Salesplug Agency{" "}
               <span className="bg-gradient-hero bg-clip-text text-transparent">
                 100% Risk-Free
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We know new tech can feel uncertain — so we're taking on all the risk. Use Callsi for 30 days, 
+              We know new tech can feel uncertain — so we're taking on all the risk. Use Salesplug Agency for 30 days, 
               and if it doesn't work for your business, we'll refund 100% of your payment.
             </p>
           </div>
@@ -58,7 +58,7 @@ const GuaranteeSection = () => {
               <span className="text-lg font-semibold">Limited Time: No Risk, All Reward</span>
             </div>
             <p className="text-muted-foreground">
-              Join thousands of businesses already using Callsi to automate their phone operations. 
+              Join thousands of businesses already using Salesplug Agency to automate their phone operations. 
               Start today and see results within 24 hours, or get your money back.
             </p>
             <Button variant="guarantee" size="xl" className="group">

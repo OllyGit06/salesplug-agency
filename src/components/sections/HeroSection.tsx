@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Play } from "lucide-react";
-import heroImage from "@/assets/hero-callsi.jpg";
+import salesplugLogo from "@/assets/salesplug-logo.png";
 
 const HeroSection = () => {
   return (
@@ -10,6 +10,14 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
+            <div className="mb-8">
+              <img 
+                src={salesplugLogo} 
+                alt="Salesplug Agency" 
+                className="h-16 w-auto"
+              />
+            </div>
+            
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
                 Breakthrough AI Telephony Agents{" "}
@@ -18,7 +26,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Callsi's human-like AI phone agents handle sales, appointments, support & more — all without hiring staff.
+                Salesplug Agency's human-like AI phone agents handle sales, appointments, support & more — all without hiring staff.
               </p>
             </div>
             
@@ -47,11 +55,11 @@ const HeroSection = () => {
           </div>
           
           <div className="relative">
-            <div className="relative z-10">
+            <div className="relative z-10 bg-gradient-subtle p-12 rounded-2xl shadow-2xl border-2 border-primary/20">
               <img
-                src={heroImage}
-                alt="Callsi AI Telephony Dashboard"
-                className="rounded-2xl shadow-2xl"
+                src={salesplugLogo}
+                alt="Salesplug Agency AI Telephony"
+                className="w-full h-auto"
               />
             </div>
             <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">

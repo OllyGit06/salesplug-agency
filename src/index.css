@@ -2,52 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Callsi AI Telephony - Professional SaaS Design System */
+/* Salesplug Agency - Professional SaaS Design System */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 223 13% 10%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 223 13% 10%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 223 13% 10%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Brand Colors - Professional Blue Theme */
-    --primary: 225 73% 57%;        /* Callsi Blue */
+    /* Brand Colors - Black & Light Blue Theme */
+    --primary: 199 89% 48%;        /* Salesplug Light Blue */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 225 100% 67%;   /* Lighter glow effect */
+    --primary-glow: 199 95% 65%;   /* Lighter blue glow */
 
-    --secondary: 220 15% 97%;
-    --secondary-foreground: 223 13% 10%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 220 13% 95%;
-    --muted-foreground: 223 8% 47%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 142 86% 28%;          /* Trust Green */
+    --accent: 199 89% 48%;          /* Light Blue accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 225 73% 57%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
 
     --radius: 0.75rem;
 
     /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(225 73% 57%), hsl(261 73% 67%));
-    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 99%), hsl(220 13% 95%));
-    --gradient-feature: linear-gradient(135deg, hsl(225 100% 97%), hsl(261 100% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 95% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-feature: linear-gradient(135deg, hsl(199 95% 97%), hsl(199 90% 95%));
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(225 73% 57% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(225 73% 57% / 0.1), 0 2px 4px -1px hsl(225 73% 57% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(225 73% 57% / 0.1), 0 4px 6px -2px hsl(225 73% 57% / 0.05);
-    --shadow-glow: 0 0 0 1px hsl(225 73% 57% / 0.05), 0 1px 0 0 hsl(225 73% 57% / 0.05), 0 1px 3px 0 hsl(225 73% 57% / 0.1);
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
+    --shadow-glow: 0 0 0 1px hsl(199 89% 48% / 0.05), 0 1px 0 0 hsl(199 89% 48% / 0.05), 0 1px 3px 0 hsl(199 89% 48% / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

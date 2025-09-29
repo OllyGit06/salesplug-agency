@@ -26,7 +26,7 @@ const BenefitsSection = () => {
     {
       icon: ShieldCheck,
       title: "Enjoy risk-free growth with our 30-day refund guarantee",
-      description: "Try Callsi completely risk-free and see the results yourself"
+      description: "Try Salesplug Agency completely risk-free and see the results yourself"
     }
   ];
 

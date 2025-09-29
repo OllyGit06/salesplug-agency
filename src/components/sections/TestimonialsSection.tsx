@@ -13,19 +13,19 @@ const TestimonialsSection = () => {
     {
       name: "Sarah Johnson",
       role: "CEO, TechStart Solutions",
-      content: "Callsi transformed the way we handle calls. It feels like having a full-time sales team for a fraction of the cost.",
+      content: "Salesplug Agency transformed the way we handle calls. It feels like having a full-time sales team for a fraction of the cost.",
       rating: 5
     },
     {
       name: "Mike Rodriguez", 
       role: "Owner, Rodriguez Real Estate",
-      content: "I was skeptical about AI handling our calls, but Callsi sounds so natural that clients can't tell the difference. Game changer!",
+      content: "I was skeptical about AI handling our calls, but Salesplug Agency sounds so natural that clients can't tell the difference. Game changer!",
       rating: 5
     },
     {
       name: "Lisa Chen",
       role: "Marketing Director, GrowthCorp",
-      content: "Our lead qualification improved by 300% after implementing Callsi. The 24/7 availability means we never miss an opportunity.",
+      content: "Our lead qualification improved by 300% after implementing Salesplug Agency. The 24/7 availability means we never miss an opportunity.",
       rating: 5
     }
   ];
@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
             Worldwide
           </h2>
           <p className="text-xl text-muted-foreground">
-            Join thousands of successful businesses already using Callsi
+            Join thousands of successful businesses already using Salesplug Agency
           </p>
         </div>
         
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
         <div className="bg-gradient-feature rounded-2xl p-8 text-center space-y-4">
           <h3 className="text-2xl font-bold text-foreground">Backed by Teknikforce</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Callsi is proudly backed by Teknikforce, a company with 120,000+ satisfied users and 
+            Salesplug Agency is proudly backed by Teknikforce, a company with 120,000+ satisfied users and 
             5-star ratings across Google, Trustpilot, G2, and Capterra. Your success is our reputation.
           </p>
           <div className="flex justify-center items-center space-x-8 text-sm text-muted-foreground">

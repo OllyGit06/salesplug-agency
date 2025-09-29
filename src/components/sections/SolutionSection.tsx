@@ -28,13 +28,13 @@ const SolutionSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-3xl lg:text-5xl font-bold text-foreground">
-                Callsi Handles Every Call{" "}
+                Salesplug Agency Handles Every Call{" "}
                 <span className="bg-gradient-hero bg-clip-text text-transparent">
                   So You Don't Have To
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Callsi's AI agents make and answer calls with human-like intelligence. Whether it's outbound sales or inbound support, 
+                Salesplug Agency's AI agents make and answer calls with human-like intelligence. Whether it's outbound sales or inbound support, 
                 your business is always covered 24/7. No excuses. No missed opportunities.
               </p>
             </div>
