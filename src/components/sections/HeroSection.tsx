@@ -2,21 +2,15 @@ import { Button } from "@/components/ui/button";
 import { Phone, Play } from "lucide-react";
 import salesplugLogo from "@/assets/salesplug-logo.png";
 import salesplugHeroPhone from "@/assets/salesplug-hero-phone.png";
-
 const HeroSection = () => {
-  return (
-    <section className="relative overflow-hidden bg-gradient-subtle">
+  return <section className="relative overflow-hidden bg-gradient-subtle">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e0f2fe%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50"></div>
       
       <div className="container mx-auto px-4 py-24 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="mb-8">
-              <img 
-                src={salesplugLogo} 
-                alt="Salesplug Agency" 
-                className="h-16 w-auto"
-              />
+              <img src={salesplugLogo} alt="Salesplug Agency" className="h-16 w-auto" />
             </div>
             
             <div className="space-y-4">
@@ -57,23 +51,13 @@ const HeroSection = () => {
           
           <div className="relative">
             <div className="relative z-10">
-              <img
-                src={salesplugHeroPhone}
-                alt="Salesplug Agency AI Virtual Agents Phone Interface"
-                className="w-full h-auto max-w-lg mx-auto"
-              />
+              <img src={salesplugHeroPhone} alt="Salesplug Agency AI Virtual Agents Phone Interface" className="w-full h-auto max-w-lg mx-auto" />
             </div>
-            <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">
-              24/7 Active
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-              AI Powered
-            </div>
+            
+            
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
