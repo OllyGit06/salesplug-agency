@@ -51,7 +51,7 @@ const HeroSection = () => {
           
           <div className="relative">
             <div className="relative z-10">
-              <img src={salesplugHeroPhone} alt="Salesplug Agency AI Virtual Agents Phone Interface" className="w-full h-auto max-w-4xl mx-auto" />
+              <img src={salesplugHeroPhone} alt="Salesplug Agency AI Virtual Agents Phone Interface" className="w-full h-auto max-w-6xl mx-auto" />
             </div>
             
             
