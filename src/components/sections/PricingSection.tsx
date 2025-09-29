@@ -197,7 +197,7 @@ const PricingSection = () => {
               Perfect Plan
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Select the category that best fits your business needs
           </p>
         </div>
