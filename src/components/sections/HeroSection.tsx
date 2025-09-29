@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Play } from "lucide-react";
 import salesplugLogo from "@/assets/salesplug-logo.png";
+import salesplugHeroPhone from "@/assets/salesplug-hero-phone.png";
 
 const HeroSection = () => {
   return (
@@ -55,11 +56,11 @@ const HeroSection = () => {
           </div>
           
           <div className="relative">
-            <div className="relative z-10 bg-gradient-subtle p-12 rounded-2xl shadow-2xl border-2 border-primary/20">
+            <div className="relative z-10">
               <img
-                src={salesplugLogo}
-                alt="Salesplug Agency AI Telephony"
-                className="w-full h-auto"
+                src={salesplugHeroPhone}
+                alt="Salesplug Agency AI Virtual Agents Phone Interface"
+                className="w-full h-auto max-w-lg mx-auto"
               />
             </div>
             <div className="absolute -top-4 -right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-pulse">
