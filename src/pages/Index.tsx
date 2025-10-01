@@ -1,3 +1,6 @@
+import Header from "@/components/Header";
+import VideoSection from "@/components/VideoSection";
+import LeadForm from "@/components/LeadForm";
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
@@ -13,6 +16,9 @@ import FinalCTASection from "@/components/sections/FinalCTASection";
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <Header />
+      <VideoSection />
+      <LeadForm />
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
