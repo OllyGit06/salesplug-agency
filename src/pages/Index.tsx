@@ -16,36 +16,30 @@ const Index = () => {
   const [contentUnlocked, setContentUnlocked] = useState(false);
 
   return (
-    <main className="min-h-screen">
-      <VideoSalesLetter onFormSubmit={() => setContentUnlocked(true)} />
-      
-      {/* Locked Content Overlay */}
-      <div className={`relative ${!contentUnlocked ? 'pointer-events-none' : ''}`}>
-        {!contentUnlocked && (
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10 flex items-center justify-center">
-            <div className="text-center p-8 bg-card rounded-2xl shadow-2xl border border-border max-w-md mx-4">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Content Locked</h2>
-              <p className="text-muted-foreground">
-                Complete the form above to unlock full access to our landing page and continue watching the video.
-              </p>
-            </div>
-          </div>
-        )}
-        
-        <div className={!contentUnlocked ? 'opacity-30' : ''}>
-          <HeroSection />
-          <ProblemSection />
-          <SolutionSection />
-          <FeaturesSection />
-          <BenefitsSection />
-          <HowItWorksSection />
-          <PricingSection />
-          <GuaranteeSection />
-          <TestimonialsSection />
-          <FAQSection />
-          <FinalCTASection />
-        </div>
+    <main className="min-h-screen relative">
+      {/* Background Content - Blurred when locked */}
+      <div className={`${!contentUnlocked ? 'blur-xl opacity-20 pointer-events-none' : ''} transition-all duration-500`}>
+        <HeroSection />
+        <ProblemSection />
+        <SolutionSection />
+        <FeaturesSection />
+        <BenefitsSection />
+        <HowItWorksSection />
+        <PricingSection />
+        <GuaranteeSection />
+        <TestimonialsSection />
+        <FAQSection />
+        <FinalCTASection />
       </div>
+
+      {/* Video Sales Letter Module - On Top */}
+      {!contentUnlocked && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-2xl overflow-y-auto py-8">
+          <div className="w-full">
+            <VideoSalesLetter onFormSubmit={() => setContentUnlocked(true)} />
+          </div>
+        </div>
+      )}
     </main>
   );
 };
