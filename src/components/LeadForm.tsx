@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useContentGate } from "@/contexts/ContentGateContext";
+import { Loader2 } from "lucide-react";
 
 const countries = [
   "United States",
@@ -23,6 +25,7 @@ const countries = [
 
 const LeadForm = () => {
   const { toast } = useToast();
+  const { unlockContent } = useContentGate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,22 +33,87 @@ const LeadForm = () => {
     company: "",
     country: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    // Basic phone validation - at least 10 digits
+    const phoneRegex = /\d{10,}/;
+    return phoneRegex.test(phone.replace(/\D/g, ''));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    toast({
-      title: "Form Submitted!",
-      description: "Thank you for your interest. We'll be in touch soon.",
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      country: ""
-    });
+    // Validation
+    if (!validateEmail(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!validatePhone(formData.phone)) {
+      toast({
+        title: "Invalid Phone",
+        description: "Please enter a valid phone number (at least 10 digits).",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Submit to Supabase
+      const { error } = await supabase.from("leads").insert({
+        name: formData.name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        phone: formData.phone.trim(),
+        company: formData.company.trim(),
+        country: formData.country,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Success!",
+        description: "Thank you! You now have access to the full landing page.",
+      });
+
+      // Unlock content
+      unlockContent();
+      
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        country: ""
+      });
+
+      // Smooth scroll to unlocked content
+      setTimeout(() => {
+        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+      }, 500);
+
+    } catch (error: any) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
@@ -130,8 +198,15 @@ const LeadForm = () => {
               </select>
             </div>
 
-            <Button type="submit" className="w-full" size="lg">
-              Submit
+            <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Submitting...
+                </>
+              ) : (
+                "Submit & Unlock Content"
+              )}
             </Button>
           </form>
         </div>

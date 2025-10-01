@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import VideoSection from "@/components/VideoSection";
 import LeadForm from "@/components/LeadForm";
+import ContentGate from "@/components/ContentGate";
 import HeroSection from "@/components/sections/HeroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
@@ -19,17 +20,21 @@ const Index = () => {
       <Header />
       <VideoSection />
       <LeadForm />
-      <HeroSection />
-      <ProblemSection />
-      <SolutionSection />
-      <FeaturesSection />
-      <BenefitsSection />
-      <HowItWorksSection />
-      <PricingSection />
-      <GuaranteeSection />
-      <TestimonialsSection />
-      <FAQSection />
-      <FinalCTASection />
+      
+      {/* Content gated behind form submission */}
+      <ContentGate>
+        <HeroSection />
+        <ProblemSection />
+        <SolutionSection />
+        <FeaturesSection />
+        <BenefitsSection />
+        <HowItWorksSection />
+        <PricingSection />
+        <GuaranteeSection />
+        <TestimonialsSection />
+        <FAQSection />
+        <FinalCTASection />
+      </ContentGate>
     </main>
   );
 };

@@ -14,13 +14,99 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          company: string
+          country: string
+          email: string
+          id: string
+          ip_address: string | null
+          name: string
+          phone: string
+          submitted_at: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          company: string
+          country: string
+          email: string
+          id?: string
+          ip_address?: string | null
+          name: string
+          phone: string
+          submitted_at?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          company?: string
+          country?: string
+          email?: string
+          id?: string
+          ip_address?: string | null
+          name?: string
+          phone?: string
+          submitted_at?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      video_settings: {
+        Row: {
+          id: string
+          is_enabled: boolean | null
+          updated_at: string | null
+          updated_by: string | null
+          video_type: string
+          video_url: string
+        }
+        Insert: {
+          id?: string
+          is_enabled?: boolean | null
+          updated_at?: string | null
+          updated_by?: string | null
+          video_type: string
+          video_url: string
+        }
+        Update: {
+          id?: string
+          is_enabled?: boolean | null
+          updated_at?: string | null
+          updated_by?: string | null
+          video_type?: string
+          video_url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: {
+        Args: { user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
