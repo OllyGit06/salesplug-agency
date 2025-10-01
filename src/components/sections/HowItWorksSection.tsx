@@ -7,12 +7,12 @@ const HowItWorksSection = () => {
       icon: Upload,
       step: "1",
       title: "Upload your scripts, FAQs, or product info",
-      description: "Simply upload your existing materials and Salesplug Agency will understand your business instantly"
+      description: "Simply upload your existing materials and Salesplug Connect will understand your business instantly"
     },
     {
       icon: Brain,
       step: "2", 
-      title: "Salesplug Agency trains instantly like your best employee",
+      title: "Salesplug Connect trains instantly like your best employee",
       description: "Our AI learns your business knowledge and tone in minutes, not weeks"
     },
     {
@@ -34,7 +34,7 @@ const HowItWorksSection = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Getting started with Salesplug Agency is simple and fast. No technical knowledge required.
+            Getting started with Salesplug Connect is simple and fast. No technical knowledge required.
           </p>
         </div>
         
@@ -68,7 +68,7 @@ const HowItWorksSection = () => {
         <div className="text-center">
           <Button variant="cta" size="xl" className="group">
             <Play className="w-5 h-5 mr-2" />
-            Watch the Demo and See Salesplug Agency in Action
+            Watch the Demo and See Salesplug Connect in Action
             <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
           </Button>
         </div>

@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="mb-8">
-              <img src={salesplugLogo} alt="Salesplug Agency" className="h-16 w-auto" />
+              <img src={salesplugLogo} alt="Salesplug Connect" className="h-16 w-auto" />
             </div>
             
             <div className="space-y-4">
@@ -21,7 +21,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Salesplug Agency's human-like AI phone agents handle sales, appointments, support & more — all without hiring staff.
+                Salesplug Connect's human-like AI phone agents handle sales, appointments, support & more — all without hiring staff.
               </p>
             </div>
             
@@ -51,7 +51,7 @@ const HeroSection = () => {
           
           <div className="relative">
             <div className="relative z-10">
-              <img src={salesplugHeroPhone} alt="Salesplug Agency AI Virtual Agents Phone Interface" className="w-full h-auto max-w-6xl mx-auto" />
+              <img src={salesplugHeroPhone} alt="Salesplug Connect AI Virtual Agents Phone Interface" className="w-full h-auto max-w-6xl mx-auto" />
             </div>
             
             

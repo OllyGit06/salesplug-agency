@@ -70,7 +70,7 @@ const FeaturesSection = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Salesplug Agency combines all essential telephony features into one powerful AI-driven platform
+            Salesplug Connect combines all essential telephony features into one powerful AI-driven platform
           </p>
         </div>
         

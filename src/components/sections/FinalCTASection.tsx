@@ -15,7 +15,7 @@ const FinalCTASection = () => {
               </span>
             </h2>
             <p className="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">
-              Stop missing calls. Stop losing sales. Let Salesplug Agency work 24/7 to grow your business 
+              Stop missing calls. Stop losing sales. Let Salesplug Connect work 24/7 to grow your business 
               while you focus on what matters most.
             </p>
           </div>
@@ -73,10 +73,10 @@ const FinalCTASection = () => {
           
           {/* Urgency Element */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <p className="text-lg font-semibold mb-2">Join 120,000+ Businesses Already Growing with Salesplug Agency</p>
+            <p className="text-lg font-semibold mb-2">Join 120,000+ Businesses Already Growing with Salesplug Connect</p>
             <p className="opacity-90">
               Don't let your competitors get ahead. Start automating your phone operations today 
-              and see why Salesplug Agency is the #1 choice for AI telephony solutions.
+              and see why Salesplug Connect is the #1 choice for AI telephony solutions.
             </p>
           </div>
         </div>
