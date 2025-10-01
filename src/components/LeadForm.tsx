@@ -126,7 +126,7 @@ const LeadForm = () => {
         <div className="bg-card rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-center mb-6">Get Started Today</h2>
           <p className="text-muted-foreground text-center mb-8">
-            Fill out the form below and we'll get back to you shortly
+            Fill out the form to gain full access to Salesplug Agency!
           </p>
           
           <form onSubmit={handleSubmit} className="space-y-6">
