@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { useToast } from "@/hooks/use-toast";
 
 const countries = [
@@ -112,18 +112,22 @@ const LeadForm = () => {
 
             <div>
               <Label htmlFor="country">Country *</Label>
-              <Select value={formData.country} onValueChange={(value) => handleChange("country", value)} required>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select your country" />
-                </SelectTrigger>
-                <SelectContent>
-                  {countries.map((country) => (
-                    <SelectItem key={country} value={country}>
-                      {country}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <select
+                id="country"
+                value={formData.country}
+                onChange={(e) => handleChange("country", e.target.value)}
+                required
+                className="w-full px-4 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="" disabled>
+                  Select your country
+                </option>
+                {countries.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <Button type="submit" className="w-full" size="lg">
