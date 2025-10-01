@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useContentGate } from "@/contexts/ContentGateContext";
 import { Loader2 } from "lucide-react";
+import { z } from "zod";
 
 const countries = [
   "United States",
@@ -23,6 +24,31 @@ const countries = [
   "Other"
 ];
 
+// Comprehensive validation schema with security best practices
+const leadFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, { message: "Name is required" })
+    .max(100, { message: "Name must be less than 100 characters" })
+    .regex(/^[a-zA-Z\s'-]+$/, { message: "Name contains invalid characters" }),
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" })
+    .toLowerCase(),
+  phone: z.string()
+    .trim()
+    .min(10, { message: "Phone number must be at least 10 digits" })
+    .max(20, { message: "Phone number must be less than 20 characters" })
+    .regex(/^[+\d\s()-]+$/, { message: "Phone number contains invalid characters" }),
+  company: z.string()
+    .trim()
+    .min(1, { message: "Company name is required" })
+    .max(100, { message: "Company name must be less than 100 characters" }),
+  country: z.string()
+    .min(1, { message: "Please select a country" })
+});
+
 const LeadForm = () => {
   const { toast } = useToast();
   const { unlockContent } = useContentGate();
@@ -35,34 +61,17 @@ const LeadForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const validatePhone = (phone: string) => {
-    // Basic phone validation - at least 10 digits
-    const phoneRegex = /\d{10,}/;
-    return phoneRegex.test(phone.replace(/\D/g, ''));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validation
-    if (!validateEmail(formData.email)) {
+    // Comprehensive validation using Zod
+    const validation = leadFormSchema.safeParse(formData);
+    
+    if (!validation.success) {
+      const firstError = validation.error.errors[0];
       toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!validatePhone(formData.phone)) {
-      toast({
-        title: "Invalid Phone",
-        description: "Please enter a valid phone number (at least 10 digits).",
+        title: "Validation Error",
+        description: firstError.message,
         variant: "destructive",
       });
       return;
@@ -71,13 +80,15 @@ const LeadForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Submit to Supabase
+      const validatedData = validation.data;
+      
+      // Submit to database with validated and sanitized data
       const { error } = await supabase.from("leads").insert({
-        name: formData.name.trim(),
-        email: formData.email.trim().toLowerCase(),
-        phone: formData.phone.trim(),
-        company: formData.company.trim(),
-        country: formData.country,
+        name: validatedData.name,
+        email: validatedData.email,
+        phone: validatedData.phone,
+        company: validatedData.company,
+        country: validatedData.country,
       });
 
       if (error) throw error;
@@ -105,10 +116,10 @@ const LeadForm = () => {
       }, 500);
 
     } catch (error: any) {
-      console.error("Error submitting form:", error);
+      // User-friendly error message without exposing sensitive details
       toast({
         title: "Submission Failed",
-        description: error.message || "Something went wrong. Please try again.",
+        description: "Unable to submit your information. Please try again later.",
         variant: "destructive",
       });
     } finally {

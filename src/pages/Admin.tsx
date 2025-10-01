@@ -61,7 +61,11 @@ const Admin = () => {
       fetchLeads();
       fetchVideoSettings();
     } catch (error) {
-      console.error("Error checking admin access:", error);
+      toast({
+        title: "Error",
+        description: "Unable to verify admin access. Please try again.",
+        variant: "destructive",
+      });
       navigate("/");
     } finally {
       setIsLoading(false);
@@ -75,7 +79,6 @@ const Admin = () => {
       .order("submitted_at", { ascending: false });
 
     if (error) {
-      console.error("Error fetching leads:", error);
       toast({
         title: "Error",
         description: "Failed to load leads.",
@@ -94,9 +97,7 @@ const Admin = () => {
       .limit(1)
       .single();
 
-    if (error) {
-      console.error("Error fetching video settings:", error);
-    } else if (data) {
+    if (!error && data) {
       setVideoSettings({
         type: data.video_type as "youtube" | "mp4",
         url: data.video_url,
@@ -126,10 +127,9 @@ const Admin = () => {
         description: "Video settings updated successfully.",
       });
     } catch (error: any) {
-      console.error("Error saving video settings:", error);
       toast({
         title: "Error",
-        description: error.message || "Failed to save video settings.",
+        description: "Failed to save video settings. Please try again.",
         variant: "destructive",
       });
     } finally {

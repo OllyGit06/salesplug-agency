@@ -7,6 +7,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
+import { z } from "zod";
+
+// Validation schema with security best practices
+const authSchema = z.object({
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" })
+    .toLowerCase(),
+  password: z.string()
+    .min(6, { message: "Password must be at least 6 characters" })
+    .max(128, { message: "Password must be less than 128 characters" })
+});
 
 const Auth = () => {
   const { toast } = useToast();
@@ -38,13 +51,29 @@ const Auth = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate input with Zod
+    const validation = authSchema.safeParse({ email, password });
+    
+    if (!validation.success) {
+      const firstError = validation.error.errors[0];
+      toast({
+        title: "Validation Error",
+        description: firstError.message,
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
+      const validatedData = validation.data;
+      
       if (isSignUp) {
         const { error } = await supabase.auth.signUp({
-          email,
-          password,
+          email: validatedData.email,
+          password: validatedData.password,
           options: {
             emailRedirectTo: `${window.location.origin}/admin`,
           },
@@ -58,8 +87,8 @@ const Auth = () => {
         });
       } else {
         const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
+          email: validatedData.email,
+          password: validatedData.password,
         });
 
         if (error) throw error;
@@ -70,10 +99,20 @@ const Auth = () => {
         });
       }
     } catch (error: any) {
-      console.error("Auth error:", error);
+      // User-friendly error without exposing sensitive details
+      let errorMessage = "Authentication failed. Please try again.";
+      
+      if (error.message?.includes("Invalid login credentials")) {
+        errorMessage = "Invalid email or password.";
+      } else if (error.message?.includes("Email not confirmed")) {
+        errorMessage = "Please confirm your email before logging in.";
+      } else if (error.message?.includes("User already registered")) {
+        errorMessage = "An account with this email already exists.";
+      }
+      
       toast({
-        title: "Error",
-        description: error.message || "Something went wrong. Please try again.",
+        title: "Authentication Error",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
